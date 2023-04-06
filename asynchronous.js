@@ -96,4 +96,32 @@ How to implement a promise-based API
     -If succeeds you call resolve otherwise call reject
     -If the executor function throws an error reject is called automatically
     -Only a single parameter can be passed into resolve and reject
+    */
+    function alarm(person, delay) {
+        //syntax for creating a new promise
+        return new Promise((resolve, reject) => {
+          if (delay < 0) {
+            //if error is thrown reject is called automatically
+            throw new Error('Alarm delay must not be negative');
+          }
+          setTimeout(() => {
+            //if it works call resolve with parameter that is being sent
+            resolve(`Wake up, ${person}!`);
+          }, delay);
+        });
+      }
+    /*
+Introducing workers
+    -Allows to run some tasks in a separate thread of execution
+    -Bugs might occur if both the worker thread and main code thread access the same variables. 
+      -Varaibles might change unexpectedly
+    -Avoid by having the two not have direct access to each others variables
+    -workers can't access the DOM
+    -three types of workers: dedicated, shared and service workers
+    -worker constructor is used and passes the URL of the worker script
+    -send message to the worker via worker.postMessage()
+    -Inside the worker script it checks via event listener for the message then after the work is done it returns a message via postMessage()
+    -Dedicated workers are used by a single script instance
+    -Shared workers are used by multiple script instances
+    -Service workers act like proxy servers: Key component for Progressive Web Apps
 */
