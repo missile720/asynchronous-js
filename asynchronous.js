@@ -32,6 +32,20 @@ Callback Hell
     -occurs when there are multiple nested callbacks
     -callbacks are nested within each other and can get messy when you have too many
     -this is where promises help
+
+Promises
+    -An object that represents the eventual completion or failure of a asynchronous operation
+    -When creating a promise you pass in two functions resolve and reject
+    -To access what is passed into resolve use .then
+    -To access what is passed into reject use .catch
+    -.finally runs whether the promise is resolved or rejected
+
+Promises vs Callback Hell
+    -Using .then to return the next call for getting data and repeating .then instead of having nested callbacks
+
+Promise.all()
+    -more concise way of passing promises
+    -can add new promises with little change
 */
 
 
@@ -56,5 +70,18 @@ Introducing asynchronous JavaScript
     What problems does it solve?
         -Solves the issue where programs are unresponsive due to waiting on long tasks to finish
 
-
+How to Use Promises
+    -Is an object that is returned by asynchronous functions that represents the current state of the operation
+    -A promise can be in one of three states
+        -pending: promise is created and the function hasnt succeeded or failed yet. This is the state when it's returned from a call to fetch() and the request is still being made
+        -fullfilled: then() handler is called
+        -rejected: the function failed the catch() handler is called
+    -promise.all() takes in an array of promises and returns a single promise
+        -then() only runs when all promises are fullfilled
+        -catch() runs when even one promise is rejected
+    -promise.any() works similiar to .all() except it is fullfilled if any one promise is fullfilled
+        -Can't be certain which fetch request will finish first in this case
+    -async keyword added to a function makes the function asynchronous
+    -await used inside the function waits for the promise to be settled before running
+        -await can only be used inside a async function or JavaScript module
 */
