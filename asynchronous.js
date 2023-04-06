@@ -48,6 +48,11 @@ Promise.all()
     -can add new promises with little change
 */
 
+//Udemy section on Fetch API & Async Await
+/*
+
+*/
+
 
 //Mozilla
 /*
@@ -84,4 +89,11 @@ How to Use Promises
     -async keyword added to a function makes the function asynchronous
     -await used inside the function waits for the promise to be settled before running
         -await can only be used inside a async function or JavaScript module
+
+How to implement a promise-based API
+    -The promise constructor takes a single function as an argument called the executor
+    -The executor function takes two arguments that are functions: resolve and reject
+    -If succeeds you call resolve otherwise call reject
+    -If the executor function throws an error reject is called automatically
+    -Only a single parameter can be passed into resolve and reject
 */
